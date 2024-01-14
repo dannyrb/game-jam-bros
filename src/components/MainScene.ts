@@ -99,20 +99,17 @@ export default class MainScene extends Phaser.Scene {
         if (left.isDown)
         {
             this.player.setVelocityX(-160);
-
-            // this.player.anims.play('left', true);
+            this.player.anims.play('left', true);
         }
         else if (right.isDown)
         {
             this.player.setVelocityX(160);
-
-            // this.player.anims.play('right', true);
+            this.player.anims.play('right', true);
         }
         else
         {
             this.player.setVelocityX(0);
-
-            // this.player.anims.play('turn');
+            this.player.anims.play('turn');
         }
 
         if (up.isDown) // && this.player.body.touching.down
