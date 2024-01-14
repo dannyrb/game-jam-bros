@@ -1,15 +1,19 @@
 "use client"
-// TODO: https://phaser.discourse.group/t/htmlvideoelement-is-not-defined-error-in-next-js/13808
-// import GameScene from '../../components/GameScene'
-import { useOnMountUnsafe } from '@/hooks/useOnMountUnsafe';
-import { startGame } from '@/components/game';
+
+import React, { useEffect} from 'react';
 
 export default function Home() {
 
-  useOnMountUnsafe(startGame);
+    useEffect(() => {
+        const startGameAsync = async () => {
+            const startGame = (await import('@/components/game')).startGame;
+            startGame();
+        }
+
+        startGameAsync();
+    }, [])
 
   return (
     <></>
-    // <GameScene />
   )
 }
