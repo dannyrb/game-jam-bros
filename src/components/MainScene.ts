@@ -1,6 +1,6 @@
-import 'phaser';
+import * as Phaser from 'phaser';
 
-export default class Main extends Phaser.Scene {
+export default class MainScene extends Phaser.Scene {
     private movingPlatform: Phaser.Types.Physics.Arcade.ImageWithDynamicBody | undefined;
     private cursors: Phaser.Types.Input.Keyboard.CursorKeys | undefined;
     private platforms: Phaser.Physics.Arcade.StaticGroup | undefined;
@@ -135,3 +135,5 @@ export default class Main extends Phaser.Scene {
         star.disableBody(true, true);
     }
 }
+
+export { MainScene }
