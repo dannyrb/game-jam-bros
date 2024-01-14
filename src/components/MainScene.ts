@@ -112,7 +112,7 @@ export default class MainScene extends Phaser.Scene {
             this.player.anims.play('turn');
         }
 
-        if (up.isDown) // && this.player.body.touching.down
+        if (up.isDown && this.player.body.touching.down)
         {
             this.player.setVelocityY(-330);
         }
