@@ -6,11 +6,15 @@ export default class MainScene extends Phaser.Scene {
     private platforms: Phaser.Physics.Arcade.StaticGroup | undefined;
     private stars: Phaser.Physics.Arcade.Group | undefined;
     private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody | undefined;
+    private collectStar: Phaser.Types.Physics.Arcade.ArcadePhysicsCallback;
+
 
     constructor() {
         super({
           key: 'MainScene'
         });
+
+        this.collectStar = collectStar;
       }
 
     preload ()
@@ -84,7 +88,7 @@ export default class MainScene extends Phaser.Scene {
         this.physics.add.collider(this.stars, this.movingPlatform);
 
         // TODO: TS Issue
-        // this.physics.add.overlap(this.player, this.stars, this.collectStar, undefined, this);
+        this.physics.add.overlap(this.player, this.stars, this.collectStar, undefined, this);
     }
 
     update ()
@@ -126,11 +130,17 @@ export default class MainScene extends Phaser.Scene {
             this.movingPlatform.setVelocityX(50);
         }
     }
-
-    collectStar (player: Phaser.Physics.Arcade.Sprite, star: Phaser.Physics.Arcade.Sprite)
-    {
-        star.disableBody(true, true);
-    }
 }
+
+type GameObject =  	Phaser.Tilemaps.Tile | Phaser.Types.Physics.Arcade.GameObjectWithBody;
+
+function collectStar (player: GameObject, star: GameObject){
+    // https://github.com/phaserjs/phaser/issues/5882
+    // https://stackoverflow.com/questions/77063518/typescript-errors-in-phaser-js
+    // https://phaser.discourse.group/t/solved-disablebody-is-not-a-function/3037
+    // @ts-ignore
+    star.disableBody(true, true);
+}
+
 
 export { MainScene }
