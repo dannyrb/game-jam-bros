@@ -33,6 +33,7 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
           ["next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
+          ["phaser", "npm:3.70.0"],\
           ["postcss", "npm:8.4.33"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:18.2.0"],\
@@ -1906,6 +1907,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["eventemitter3", [\
+      ["npm:5.0.1", {\
+        "packageLocation": "../../.yarn/berry/cache/eventemitter3-npm-5.0.1-5e423b7df3-10c0.zip/node_modules/eventemitter3/",\
+        "packageDependencies": [\
+          ["eventemitter3", "npm:5.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["exponential-backoff", [\
       ["npm:3.1.1", {\
         "packageLocation": "../../.yarn/berry/cache/exponential-backoff-npm-3.1.1-04df458b30-10c0.zip/node_modules/exponential-backoff/",\
@@ -2128,6 +2138,7 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
           ["next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
+          ["phaser", "npm:3.70.0"],\
           ["postcss", "npm:8.4.33"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:18.2.0"],\
@@ -3553,6 +3564,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/path-type-npm-4.0.0-10d47fc86a-10c0.zip/node_modules/path-type/",\
         "packageDependencies": [\
           ["path-type", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["phaser", [\
+      ["npm:3.70.0", {\
+        "packageLocation": "../../.yarn/berry/cache/phaser-npm-3.70.0-b68feb4348-10c0.zip/node_modules/phaser/",\
+        "packageDependencies": [\
+          ["phaser", "npm:3.70.0"],\
+          ["eventemitter3", "npm:5.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
