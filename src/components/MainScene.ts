@@ -29,9 +29,9 @@ export default class MainScene extends Phaser.Scene {
 
         this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
 
-        // platforms.create(600, 400, 'ground');
-        // platforms.create(50, 250, 'ground');
-        // platforms.create(750, 220, 'ground');
+        this.platforms.create(600, 400, 'ground');
+        this.platforms.create(50, 250, 'ground');
+        this.platforms.create(750, 220, 'ground');
 
         this.movingPlatform = this.physics.add.image(400, 400, 'ground');
 

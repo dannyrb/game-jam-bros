@@ -6,10 +6,6 @@ export class Game extends Phaser.Game {
         super(config);
     }
 }
-  
-// window.addEventListener('load', () => {
-//     const game = new Game(GameConfig);
-// });
 
 const startGame = () => {
     // Doesn't work in SSR
