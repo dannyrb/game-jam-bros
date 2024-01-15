@@ -105,6 +105,12 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   private initSprite() {
+    const PLAYER_BODY = this.getPlayerBody();
+
+    if(PLAYER_BODY === undefined) {
+      return;
+    }
+    
     // variables
     // @TODO - Look this up
     // this.marioSize = this.currentScene.registry.get('marioSize');
@@ -120,15 +126,12 @@ export class Player extends Phaser.GameObjects.Sprite {
     this.currentScene.physics.world.enable(this);
 
     // @TODO - Set better max values here
-    if(this.body && this.body.gameObject) {
+    // this.body.allowGravity = false;
+    // this.body.gravity = new Phaser.Math.Vector2(0, this.gravityStrength);
+    // this.body.bounce = new Phaser.Math.Vector2(0.2, 0.2);
 
-      // this.body.allowGravity = false;
-      // this.body.gravity = new Phaser.Math.Vector2(0, this.gravityStrength);
-      // this.body.bounce = new Phaser.Math.Vector2(0.2, 0.2);
-
-      (this.body as Phaser.Physics.Arcade.Body).maxVelocity.x = 300;
-      this.body.maxVelocity.y = 1000;
-    }
+    PLAYER_BODY.maxVelocity.x = 300;
+    PLAYER_BODY.maxVelocity.y = 1000;
   }
 
   private addKey(key: string): Phaser.Input.Keyboard.Key {
