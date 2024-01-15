@@ -1,17 +1,20 @@
 import * as Phaser from 'phaser';
 
-export default class MainScene extends Phaser.Scene {
+import { Player } from '../objects/player'
+
+export default class GameScene extends Phaser.Scene {
     private movingPlatform: Phaser.Types.Physics.Arcade.ImageWithDynamicBody | undefined;
     private cursors: Phaser.Types.Input.Keyboard.CursorKeys | undefined;
     private platforms: Phaser.Physics.Arcade.StaticGroup | undefined;
     private stars: Phaser.Physics.Arcade.Group | undefined;
-    private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody | undefined;
+    private player: Player;
+    // private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody | undefined;
     private collectStar: Phaser.Types.Physics.Arcade.ArcadePhysicsCallback;
 
 
     constructor() {
         super({
-          key: 'MainScene'
+          key: 'GameScene'
         });
 
         this.collectStar = collectStar;
@@ -25,8 +28,11 @@ export default class MainScene extends Phaser.Scene {
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
 
-    create ()
-    {
+    create () {
+        /**
+         * SETUP TILEMAP
+         */
+        
         this.add.image(400, 300, 'sky');
 
         this.platforms = this.physics.add.staticGroup();
@@ -43,10 +49,41 @@ export default class MainScene extends Phaser.Scene {
         this.movingPlatform.body.allowGravity = false;
         this.movingPlatform.setVelocityX(50);
 
-        this.player = this.physics.add.sprite(100, 450, 'dude');
+        /**
+         * GAME OBJECTS
+         */
 
-        this.player.setBounce(0.2);
-        this.player.setCollideWorldBounds(true);
+        this.loadObjectsFromTilemap();
+        
+        // this.player = this.physics.add.sprite(100, 450, 'dude');
+        // this.player.setBounce(0.2);
+        // this.player.setCollideWorldBounds(true);
+
+        this.stars = this.physics.add.group({
+            key: 'star',
+            repeat: 11,
+            setXY: { x: 12, y: 0, stepX: 70 }
+        });
+
+        for (const star of this.stars.getChildren() as Phaser.Physics.Arcade.Sprite[])
+        {
+            star.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+        }
+
+        /**
+         * COLLIDERS
+         */
+
+        this.physics.add.collider(this.player, this.platforms);
+        this.physics.add.collider(this.player, this.movingPlatform);
+        this.physics.add.collider(this.stars, this.platforms);
+        this.physics.add.collider(this.stars, this.movingPlatform);
+        this.physics.add.overlap(this.player, this.stars, this.collectStar, undefined, this);
+
+        /**
+         * MISC
+         */
+
 
         this.anims.create({
             key: 'left',
@@ -70,25 +107,6 @@ export default class MainScene extends Phaser.Scene {
 
         // TODO: check there is a keyboard
         this.cursors = this.input.keyboard?.createCursorKeys();
-
-        this.stars = this.physics.add.group({
-            key: 'star',
-            repeat: 11,
-            setXY: { x: 12, y: 0, stepX: 70 }
-        });
-
-        for (const star of this.stars.getChildren() as Phaser.Physics.Arcade.Sprite[])
-        {
-            star.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-        }
-
-        this.physics.add.collider(this.player, this.platforms);
-        this.physics.add.collider(this.player, this.movingPlatform);
-        this.physics.add.collider(this.stars, this.platforms);
-        this.physics.add.collider(this.stars, this.movingPlatform);
-
-        // TODO: TS Issue
-        this.physics.add.overlap(this.player, this.stars, this.collectStar, undefined, this);
     }
 
     update ()
@@ -97,29 +115,10 @@ export default class MainScene extends Phaser.Scene {
         if (!this.cursors || !this.player || !this.movingPlatform) {
             return;
         }
-
         const { left, right, up } = this.cursors;
 
-        if (left.isDown)
-        {
-            this.player.setVelocityX(-160);
-            this.player.anims.play('left', true);
-        }
-        else if (right.isDown)
-        {
-            this.player.setVelocityX(160);
-            this.player.anims.play('right', true);
-        }
-        else
-        {
-            this.player.setVelocityX(0);
-            this.player.anims.play('turn');
-        }
 
-        if (up.isDown && this.player.body.touching.down)
-        {
-            this.player.setVelocityY(-330);
-        }
+        this.player.update();
 
         if (this.movingPlatform.x >= 500)
         {
@@ -129,6 +128,15 @@ export default class MainScene extends Phaser.Scene {
         {
             this.movingPlatform.setVelocityX(50);
         }
+    }
+
+    private loadObjectsFromTilemap(): void {
+        this.player = new Player({
+            scene: this,
+            x: 100, // this.registry.get('spawn').x,
+            y: 450, // this.registry.get('spawn').y,
+            texture: 'mario'
+          });
     }
 }
 
@@ -143,4 +151,4 @@ function collectStar (player: GameObject, star: GameObject){
 }
 
 
-export { MainScene }
+export { GameScene }
