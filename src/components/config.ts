@@ -10,7 +10,8 @@ const GameConfig = {
     physics: {
       default: 'arcade',
       arcade: {
-        gravity: { y: 200 },
+        // We'll implement this?
+        // gravity: { y: 475 },
       },
     },
     parent: 'game',
