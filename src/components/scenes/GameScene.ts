@@ -18,6 +18,13 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.collectStar = collectStar;
+        
+        this.player = new Player({
+            scene: this,
+            x: 100, // this.registry.get('spawn').x,
+            y: 450, // this.registry.get('spawn').y,
+            texture: 'mario'
+          });
       }
 
     preload ()
@@ -131,12 +138,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     private loadObjectsFromTilemap(): void {
-        this.player = new Player({
-            scene: this,
-            x: 100, // this.registry.get('spawn').x,
-            y: 450, // this.registry.get('spawn').y,
-            texture: 'mario'
-          });
+
     }
 }
 
