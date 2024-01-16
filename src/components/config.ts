@@ -1,4 +1,5 @@
-import { GameScene } from './scenes/GameScene'
+import { BootScene } from './scenes/boot-scene';
+import { GameScene } from './scenes/game-scene'
 
 const GameConfig = {
     type: Phaser.AUTO,
@@ -15,7 +16,7 @@ const GameConfig = {
       },
     },
     parent: 'game',
-    scene: [GameScene],
+    scene: [BootScene, GameScene],
     input: {
       keyboard: true
     },

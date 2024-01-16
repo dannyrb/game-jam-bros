@@ -1,0 +1,182 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": "public/assets/knight/Attack_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Attack_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Crouching_Idle_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Crouching_Idle_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Crouching_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Crouching_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Crouching_Walk_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Crouching_Walk_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Dashing_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Dashing_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Dying_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Dying_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Fall_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Fall_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Grab_idle_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Grab_idle_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Hurt_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Hurt_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Idle_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Idle_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Jump_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Jump_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Landing_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Landing_KG_1"
+            },
+            {
+                "url": "public/assets/knight/Walking_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Walking_KG_1"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false
+    }
+}

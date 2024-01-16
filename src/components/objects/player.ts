@@ -51,10 +51,6 @@ export class Player extends Phaser.GameObjects.Sprite {
     this.gravityScale = gravityScale;
   }
 
-  private getPlayerBody(): Phaser.Physics.Arcade.Body | undefined {
-    return _assertPhysicsArcadeBody(this.body);
-  }
-
   constructor(aParams: ISpriteConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
     const BASE_GRAVITY_STRENGTH = 450;
@@ -243,14 +239,10 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   private handleAnimations(): void {
-    if(!this.keys || !this.body) {
-        return
-    }
-
     if (this.body.velocity.y !== 0) {
       // mario is jumping or falling
       this.anims.stop();
-      // this.setFrame(10);
+      this.anims.play('jump', true);
     } else if (this.body.velocity.x !== 0) {
       // mario is moving horizontal
 
@@ -263,7 +255,7 @@ export class Player extends Phaser.GameObjects.Sprite {
       }
 
       if (this.body.velocity.x > 0) {
-        // this.anims.play('MarioWalk', true);
+        this.anims.play('walk', true);
       }
     } else {
       // mario is standing still
@@ -303,17 +295,5 @@ export class Player extends Phaser.GameObjects.Sprite {
     this.body.checkCollision.left = false;
     this.body.checkCollision.right = false;
     
-  }
-}
-
-/**
- * 
- * @see https://www.codecademy.com/learn/learn-typescript/modules/learn-typescript-type-narrowing/cheatsheet
- * @param body 
- * @returns 
- */
-function _assertPhysicsArcadeBody(body: Phaser.Physics.Arcade.Body | Phaser.Physics.Arcade.StaticBody | MatterJS.BodyType | null) {
-  if (body!== null && 'maxVelocity' in body) {
-    return body;
   }
 }

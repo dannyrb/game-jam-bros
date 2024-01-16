@@ -1,0 +1,26 @@
+{
+    "anims": [
+      {
+        "key": "walk",
+        "frames": {
+          "typeOfGeneration": "generateFrameNumbers",
+          "key": "knightWalking001",
+          "start": 0,
+          "end": 6
+        },
+        "repeat": -1,
+        "frameRate": 18
+      },
+      {
+        "key": "jump",
+        "frames": {
+          "typeOfGeneration": "generateFrameNumbers",
+          "key": "knightJumping001",
+          "start": 0,
+          "end": 5
+        },
+        "repeat": -1,
+        "frameRate": 18
+      }
+    ]
+  }

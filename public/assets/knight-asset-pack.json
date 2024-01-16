@@ -1,0 +1,187 @@
+{
+    "preload": {
+        "files": [
+            {
+                "url": "assets/knight/Attack_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightAttack001"
+            },
+            {
+                "url": "assets/knight/Crouching_Idle_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightCrouchingIdle001"
+            },
+            {
+                "url": "assets/knight/Crouching_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightCrouching001"
+            },
+            {
+                "url": "assets/knight/Crouching_Walk_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightCrouchWalking001"
+            },
+            {
+                "url": "assets/knight/Dashing_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightDashing001"
+            },
+            {
+                "url": "assets/knight/Dying_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightDying001"
+            },
+            {
+                "url": "assets/knight/Fall_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightFalling001"
+            },
+            {
+                "url": "assets/knight/Grab_idle_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightGrabbingIdle001"
+            },
+            {
+                "url": "assets/knight/Hurt_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightHurt001"
+            },
+            {
+                "url": "assets/knight/Idle_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightIdle001"
+            },
+            {
+                "url": "assets/knight/Jump_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightJumping001"
+            },
+            {
+                "url": "assets/knight/Landing_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightLanding001"
+            },
+            {
+                "url": "assets/knight/Walking_KG_1.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 64,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "knightWalking001"
+            },
+            {
+                "type": "json",
+                "key": "knightAnimationJson",
+                "url": "./assets/animations/knight-animations.json"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false
+    }
+}

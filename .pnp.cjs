@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
           ["next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
           ["phaser", "npm:3.70.0"],\
+          ["phasereditor2d-launcher", "npm:3.66.0"],\
           ["postcss", "npm:8.4.33"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:18.2.0"],\
@@ -613,6 +614,15 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/acorn",\
           "acorn"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["adm-zip", [\
+      ["npm:0.5.10", {\
+        "packageLocation": "../../.yarn/berry/cache/adm-zip-npm-0.5.10-17a872f2fd-10c0.zip/node_modules/adm-zip/",\
+        "packageDependencies": [\
+          ["adm-zip", "npm:0.5.10"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2139,6 +2149,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
           ["next", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:14.0.4"],\
           ["phaser", "npm:3.70.0"],\
+          ["phasereditor2d-launcher", "npm:3.66.0"],\
           ["postcss", "npm:8.4.33"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:37120b2e2ff037538d33dade65e416d05c43535568bafdb4ab82c6e470029114093006cc14f9a82fd37ae27057fe04abda4def4f04e20d175087d0212351c8a1#npm:18.2.0"],\
@@ -3574,6 +3585,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["phaser", "npm:3.70.0"],\
           ["eventemitter3", "npm:5.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["phasereditor2d-launcher", [\
+      ["npm:3.66.0", {\
+        "packageLocation": "./.yarn/unplugged/phasereditor2d-launcher-npm-3.66.0-d4638773f6/node_modules/phasereditor2d-launcher/",\
+        "packageDependencies": [\
+          ["phasereditor2d-launcher", "npm:3.66.0"],\
+          ["adm-zip", "npm:0.5.10"]\
         ],\
         "linkType": "HARD"\
       }]\

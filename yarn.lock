@@ -448,6 +448,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"adm-zip@npm:^0.5.5":
+  version: 0.5.10
+  resolution: "adm-zip@npm:0.5.10"
+  checksum: 1f391a4e02940688b6ca6d4b3ea96cc82a9dbe1596671d7dbc052f9a53ed2efa6ba9ba253f032ea16e70081f22d6ddd1af2d65d6be700853cdee9c2fc925c20e
+  languageName: node
+  linkType: hard
+
 "agent-base@npm:^7.0.2, agent-base@npm:^7.1.0":
   version: 7.1.0
   resolution: "agent-base@npm:7.1.0"
@@ -1676,11 +1683,15 @@ __metadata:
     eslint-config-next: "npm:14.0.4"
     next: "npm:14.0.4"
     phaser: "npm:^3.70.0"
+    phasereditor2d-launcher: "npm:^3.66.0"
     postcss: "npm:^8"
     react: "npm:^18"
     react-dom: "npm:^18"
     tailwindcss: "npm:^3.3.0"
     typescript: "npm:^5"
+  dependenciesMeta:
+    phasereditor2d-launcher@3.66.0:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
@@ -2964,6 +2975,17 @@ __metadata:
   dependencies:
     eventemitter3: "npm:^5.0.1"
   checksum: a66fed1fab29ea09856faaff60b4c5e03aea6d282d024f991fa0c306f08db1b65213dda655eb6fb0f58954bf211a9b1e731c409b75e9daf6c2698360fb3a940f
+  languageName: node
+  linkType: hard
+
+"phasereditor2d-launcher@npm:^3.66.0":
+  version: 3.66.0
+  resolution: "phasereditor2d-launcher@npm:3.66.0"
+  dependencies:
+    adm-zip: "npm:^0.5.5"
+  bin:
+    phasereditor2d-launcher: cli.js
+  checksum: 6c15e580ee6362a022259057d5d4779796dc291cb3c0e5f3b04382078a2d645f24032056cd2c0cff323290e223014b9eb950e88c967baa2243e883811b454407
   languageName: node
   linkType: hard
 

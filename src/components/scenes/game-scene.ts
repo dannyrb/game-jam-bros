@@ -59,7 +59,7 @@ export default class GameScene extends Phaser.Scene {
             scene: this,
             x: 100, // this.registry.get('spawn').x,
             y: 450, // this.registry.get('spawn').y,
-            texture: 'mario'
+            texture: 'knightWalking001'
           });
         
         // this.player = this.physics.add.sprite(100, 450, 'dude');
