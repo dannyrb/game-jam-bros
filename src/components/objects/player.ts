@@ -33,6 +33,9 @@ export class Player extends Phaser.GameObjects.Sprite {
   private isDying: boolean;
   private isVulnerable: boolean;
 
+  private canStartJumpAnimation: boolean;
+  private canStartLandingAnimation: boolean;
+
   // input
   private keys!: Map<string, Phaser.Input.Keyboard.Key>;
 
@@ -64,6 +67,11 @@ export class Player extends Phaser.GameObjects.Sprite {
     this.isVulnerable = true;
     this.isJumping = false;
     this.isDying = false;
+
+    //
+    this.canStartJumpAnimation = true;
+    this.canStartLandingAnimation = false;
+    //
 
     //
     this.currentScene = aParams.scene;
@@ -239,28 +247,32 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   private handleAnimations(): void {
-    if (this.body.velocity.y !== 0) {
-      // mario is jumping or falling
-      this.anims.stop();
-      this.anims.play('jump', true);
-    } else if (this.body.velocity.x !== 0) {
-      // mario is moving horizontal
-
-      // check if mario is making a quick direction change
-      if (
-        (this.body.velocity.x < 0 && this.body.acceleration.x > 0) ||
-        (this.body.velocity.x > 0 && this.body.acceleration.x < 0)
-      ) {
-        // this.setFrame(11);
+    // jumping
+    if (this.body.velocity.y < 0) {
+      if(this.canStartJumpAnimation) {
+        this.anims.play('jump', true);
+        this.canStartLandingAnimation = true;
+        this.canStartJumpAnimation = false;
       }
-
-      if (this.body.velocity.x > 0) {
-        this.anims.play('walk', true);
-      }
-    } else {
-      // mario is standing still
-      this.anims.stop();
-      // this.setFrame(6);
+    } 
+    // falling
+    else if (this.body.velocity.y > 0) {
+      this.anims.play('falling', true);
+    }
+    // landing
+    else if (this.body.velocity.y === 0 && this.canStartJumpAnimation === false && this.canStartLandingAnimation) {
+      this.anims.play('landing', true);
+      this.canStartLandingAnimation = false;
+    }
+    // moving horizontal
+    else if (this.body.velocity.x !== 0) {
+      this.anims.play('walk', true);
+      this.canStartJumpAnimation = true;
+    } 
+    // standing still
+    else {
+      this.anims.play('idle', true);
+      this.canStartJumpAnimation = true;
     }
   }
 

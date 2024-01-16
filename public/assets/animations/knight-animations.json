@@ -9,7 +9,7 @@
           "end": 6
         },
         "repeat": -1,
-        "frameRate": 18
+        "frameRate": 10
       },
       {
         "key": "jump",
@@ -19,8 +19,41 @@
           "start": 0,
           "end": 5
         },
+        "repeat": 0,
+        "frameRate": 10
+      },
+      {
+        "key": "falling",
+        "frames": {
+          "typeOfGeneration": "generateFrameNumbers",
+          "key": "knightFalling001",
+          "start": 0,
+          "end": 2
+        },
+        "repeat": 0,
+        "frameRate": 4
+      },
+      {
+        "key": "landing",
+        "frames": {
+          "typeOfGeneration": "generateFrameNumbers",
+          "key": "knightLanding001",
+          "start": 0,
+          "end": 3
+        },
+        "repeat": 0,
+        "frameRate": 8
+      },
+      {
+        "key": "idle",
+        "frames": {
+          "typeOfGeneration": "generateFrameNumbers",
+          "key": "knightIdle001",
+          "start": 0,
+          "end": 3
+        },
         "repeat": -1,
-        "frameRate": 18
+        "frameRate": 2
       }
     ]
   }
