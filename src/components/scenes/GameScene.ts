@@ -7,8 +7,8 @@ export default class GameScene extends Phaser.Scene {
     private cursors: Phaser.Types.Input.Keyboard.CursorKeys | undefined;
     private platforms: Phaser.Physics.Arcade.StaticGroup | undefined;
     private stars: Phaser.Physics.Arcade.Group | undefined;
-    private player: Player;
-    // private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody | undefined;
+    // @see https://stackoverflow.com/questions/42273853/in-typescript-what-is-the-exclamation-mark-bang-operator-when-dereferenci
+    private player!: Player;
     private collectStar: Phaser.Types.Physics.Arcade.ArcadePhysicsCallback;
 
 
@@ -18,13 +18,6 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.collectStar = collectStar;
-        
-        this.player = new Player({
-            scene: this,
-            x: 100, // this.registry.get('spawn').x,
-            y: 450, // this.registry.get('spawn').y,
-            texture: 'mario'
-          });
       }
 
     preload ()
@@ -61,6 +54,13 @@ export default class GameScene extends Phaser.Scene {
          */
 
         this.loadObjectsFromTilemap();
+
+        this.player = new Player({
+            scene: this,
+            x: 100, // this.registry.get('spawn').x,
+            y: 450, // this.registry.get('spawn').y,
+            texture: 'mario'
+          });
         
         // this.player = this.physics.add.sprite(100, 450, 'dude');
         // this.player.setBounce(0.2);

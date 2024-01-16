@@ -1,6 +1,8 @@
 import { ISpriteConstructor } from '../interfaces/sprite.interface';
 
 export class Player extends Phaser.GameObjects.Sprite {
+  body!: Phaser.Physics.Arcade.Body
+
   // PUBLIC STATE
   IsFacingRight: boolean;
 	IsWallJumping: boolean;
@@ -32,7 +34,7 @@ export class Player extends Phaser.GameObjects.Sprite {
   private isVulnerable: boolean;
 
   // input
-  private keys: Map<string, Phaser.Input.Keyboard.Key>;
+  private keys!: Map<string, Phaser.Input.Keyboard.Key>;
 
   public getKeys(): Map<string, Phaser.Input.Keyboard.Key> {
     return this.keys;
@@ -76,12 +78,6 @@ export class Player extends Phaser.GameObjects.Sprite {
     this.acceleration = 5000;
 
     //
-    // input
-    this.keys = new Map([
-      ['LEFT', this.addKey('LEFT')],
-      ['RIGHT', this.addKey('RIGHT')],
-      ['JUMP', this.addKey('UP')]
-    ]);
 
     //
     this.jumpHeight = 450;
@@ -105,11 +101,11 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   private initSprite() {
-    const PLAYER_BODY = this.getPlayerBody();
-
-    if(PLAYER_BODY === undefined) {
-      return;
-    }
+    this.keys = new Map([
+      ['LEFT', this.addKey('LEFT')],
+      ['RIGHT', this.addKey('RIGHT')],
+      ['JUMP', this.addKey('UP')]
+    ]);
     
     // variables
     // @TODO - Look this up
@@ -130,8 +126,8 @@ export class Player extends Phaser.GameObjects.Sprite {
     // this.body.gravity = new Phaser.Math.Vector2(0, this.gravityStrength);
     // this.body.bounce = new Phaser.Math.Vector2(0.2, 0.2);
 
-    PLAYER_BODY.maxVelocity.x = 300;
-    PLAYER_BODY.maxVelocity.y = 1000;
+    this.body.maxVelocity.x = 300;
+    this.body.maxVelocity.y = 1000;
   }
 
   private addKey(key: string): Phaser.Input.Keyboard.Key {
@@ -142,12 +138,6 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   update(): void {
-    const PLAYER_BODY = this.getPlayerBody();
-
-    if(PLAYER_BODY === undefined) {
-      return;
-    }
-
     if (!this.isDying) {
       this.handleInput();
       this.handleAnimations();
@@ -170,8 +160,8 @@ export class Player extends Phaser.GameObjects.Sprite {
       const gravityStrength = 400;
       const fixedDeltaTime = 200;
       
-      const IS_FALLING = PLAYER_BODY.velocity.y > 0;
-      const IS_RISING = PLAYER_BODY.velocity.y < 0;
+      const IS_FALLING = this.body.velocity.y > 0;
+      const IS_RISING = this.body.velocity.y < 0;
 
       // this.body.setVelocityX(0);
       // this.body.setAccelerationX(0);
@@ -184,7 +174,7 @@ export class Player extends Phaser.GameObjects.Sprite {
         const JUMP_CUT_GRAVITY_MULTIPLIER = 5;
         this.setGravityScale(GRAVITY_SCALE_BASE * JUMP_CUT_GRAVITY_MULTIPLIER);
 
-        PLAYER_BODY.setAccelerationY(Math.max(PLAYER_BODY.velocity.y, this.maxFallSpeed) * this.gravityScale);
+        this.body.setAccelerationY(Math.max(this.body.velocity.y, this.maxFallSpeed) * this.gravityScale);
       }
       // Falling
       else if (IS_FALLING) {
@@ -194,7 +184,7 @@ export class Player extends Phaser.GameObjects.Sprite {
         //Higher gravity if falling
 				this.setGravityScale(GRAVITY_SCALE_BASE * FALL_GRAVITY_MULTIPLIER);
 				// Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-				PLAYER_BODY.setAccelerationY(Math.max(PLAYER_BODY.velocity.y, this.maxFallSpeed) * this.gravityScale);
+				this.body.setAccelerationY(Math.max(this.body.velocity.y, this.maxFallSpeed) * this.gravityScale);
       } 
       // Default Gravity
       else {
@@ -203,26 +193,20 @@ export class Player extends Phaser.GameObjects.Sprite {
         const FALL_GRAVITY_MULTIPLIER = 1;
 
 				this.setGravityScale(GRAVITY_SCALE_BASE * FALL_GRAVITY_MULTIPLIER);
-        PLAYER_BODY.setAccelerationY(Math.max(PLAYER_BODY.velocity.y, this.maxFallSpeed) * this.gravityScale);
+        this.body.setAccelerationY(Math.max(this.body.velocity.y, this.maxFallSpeed) * this.gravityScale);
       }
 
       console.log('JUMPING_STATE', {
         "jumpingState": JUMPING_STATE,
         "gravityScale": this.gravityScale,
-        "velocityY": PLAYER_BODY.velocity.y,
-        "accelerationY": PLAYER_BODY.acceleration.y,
+        "velocityY": this.body.velocity.y,
+        "accelerationY": this.body.acceleration.y,
       });
 
     }
   }
 
   private handleInput() {
-    const PLAYER_BODY = this.getPlayerBody();
-
-    if(PLAYER_BODY === undefined) {
-      return;
-    }
-
     // if (this.y > this.currentScene.sys.canvas.height) {
     //   // mario fell into a hole
     //   this.isDying = true;
@@ -231,9 +215,9 @@ export class Player extends Phaser.GameObjects.Sprite {
     // evaluate if player is on the floor or on object
     // if neither of that, set the player to be jumping
     if (
-      PLAYER_BODY.onFloor() ||
-      PLAYER_BODY.touching.down ||
-      PLAYER_BODY.blocked.down
+      this.body.onFloor() ||
+      this.body.touching.down ||
+      this.body.blocked.down
     ) {
       this.isJumping = false;
       //this.body.setVelocityY(0);
@@ -241,19 +225,19 @@ export class Player extends Phaser.GameObjects.Sprite {
 
     // handle movements to left and right
     if (this.keys.get('RIGHT')?.isDown) {
-      PLAYER_BODY.setAccelerationX(this.acceleration);
+      this.body.setAccelerationX(this.acceleration);
       this.setFlipX(false);
     } else if (this.keys.get('LEFT')?.isDown) {
-      PLAYER_BODY.setAccelerationX(-this.acceleration);
+      this.body.setAccelerationX(-this.acceleration);
       this.setFlipX(true);
     } else {
-      PLAYER_BODY.setVelocityX(0);
-      PLAYER_BODY.setAccelerationX(0);
+      this.body.setVelocityX(0);
+      this.body.setAccelerationX(0);
     }
 
     // handle jumping
     if (this.keys.get('JUMP')?.isDown && !this.isJumping) {
-      PLAYER_BODY.setVelocityY(-600);
+      this.body.setVelocityY(-600);
       this.isJumping = true;
     }
   }
@@ -272,14 +256,14 @@ export class Player extends Phaser.GameObjects.Sprite {
 
       // check if mario is making a quick direction change
       if (
-        (this.body.velocity.x < 0 && this.body.gameObject.acceleration.x > 0) ||
-        (this.body.velocity.x > 0 && this.body.gameObject.acceleration.x < 0)
+        (this.body.velocity.x < 0 && this.body.acceleration.x > 0) ||
+        (this.body.velocity.x > 0 && this.body.acceleration.x < 0)
       ) {
         // this.setFrame(11);
       }
 
       if (this.body.velocity.x > 0) {
-        this.anims.play('MarioWalk', true);
+        // this.anims.play('MarioWalk', true);
       }
     } else {
       // mario is standing still
@@ -300,12 +284,6 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   public gotHit(): void {
-    const PLAYER_BODY = this.getPlayerBody();
-
-    if(PLAYER_BODY === undefined) {
-      return;
-    }
-
     this.isVulnerable = false;
 
     // mario is dying
@@ -313,17 +291,17 @@ export class Player extends Phaser.GameObjects.Sprite {
 
     // sets acceleration, velocity and speed to zero
     // stop all animations
-    PLAYER_BODY.stop();
+    this.body.stop();
     this.anims.stop();
 
     // make last dead jump and turn off collision check
-    PLAYER_BODY.setVelocityY(-180);
+    this.body.setVelocityY(-180);
 
     // this.body.checkCollision.none did not work for me
-    PLAYER_BODY.checkCollision.up = false;
-    PLAYER_BODY.checkCollision.down = false;
-    PLAYER_BODY.checkCollision.left = false;
-    PLAYER_BODY.checkCollision.right = false;
+    this.body.checkCollision.up = false;
+    this.body.checkCollision.down = false;
+    this.body.checkCollision.left = false;
+    this.body.checkCollision.right = false;
     
   }
 }
